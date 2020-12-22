@@ -1,0 +1,32 @@
+<?php
+$locale_home = "Главная";
+$locale_admin = "Админ-панель";
+$locale_forums = "Форумы";
+$locale_thread = "Тема";
+$locale_profile = "Профиль";
+$locale_create_thread = "Создать тему";
+$locale_no_more_threads = "Тем больше нету :(";
+$locale_post_reply = "Ответить";
+$locale_post = "Отправить";
+$locale_username = "Никнейм";
+$locale_regdate = "Дата регистрации";
+$locale_back = "Назад";
+$locale_login = "Логин";
+$locale_username = "Никнейм";
+$locale_password = "Пароль";
+$locale_incorrect_credentials = "Неверный логин/пароль";
+$locale_board_title = "Название форума";
+$locale_board_message = "Сообщение форума";
+$locale_save = "Сохранить";
+$locale_language = "Язык";
+$locale_exit = "Выйти";
+$locale_register = "Регистрация";
+$locale_fillform = "Вы оставили пустые формы";
+$locale_login_taken = "Этот никнейм уже занят";
+$locale_my_profile = "Мой профиль";
+$locale_thread_info = "Информация о теме";
+$locale_thread_title = "Название темы";
+$locale_thread_message = "Содержание темы";
+$locale_replies = "Комментарии";
+$locale_token = "API Ключ";
+?>

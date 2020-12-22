@@ -1,0 +1,32 @@
+<?php
+$locale_home = "Home";
+$locale_admin = "Admin";
+$locale_forums = "Forums";
+$locale_thread = "Thread";
+$locale_profile = "Profile";
+$locale_create_thread = "Create thread";
+$locale_no_more_threads = "No more threads :(";
+$locale_post_reply = "Post Reply";
+$locale_post = "Post";
+$locale_username = "Username";
+$locale_regdate = "Registration date";
+$locale_back = "Back";
+$locale_login = "Log-in";
+$locale_username = "Username";
+$locale_password = "Password";
+$locale_incorrect_credentials = "Incorrect username/password";
+$locale_board_title = "Board Title";
+$locale_board_message = "Board Message";
+$locale_save = "Save";
+$locale_language = "Language";
+$locale_exit = "Exit";
+$locale_register = "Register";
+$locale_fillform = "Fields cannot be empty!";
+$locale_login_taken = "This username is already used";
+$locale_my_profile = "My profile";
+$locale_thread_info = "Thread Info";
+$locale_thread_title = "Thread Title";
+$locale_thread_message = "Thread Message";
+$locale_replies = "Replies";
+$locale_token = "API Token";
+?>
