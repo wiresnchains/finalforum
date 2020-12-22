@@ -38,4 +38,14 @@ if (isset($_POST['post_reply'])) {
     header('location: /profiles/login');
   }
 }
+
+if (isset($_POST['remove_thread'])) {
+  $thread_id = mysqli_real_escape_string($sql, $_POST['thread_id']);
+
+  // delete thread
+  $query = mysqli_query($sql , "DELETE FROM ff_threads WHERE id='$thread_id'");
+
+  // delete thread replies
+  $query_2 = mysqli_query($sql , "DELETE FROM ff_replies WHERE parent_thread='$thread_id'");
+}
 ?>

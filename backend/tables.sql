@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Дек 22 2020 г., 10:48
+-- Время создания: Дек 22 2020 г., 16:24
 -- Версия сервера: 10.3.22-MariaDB
 -- Версия PHP: 7.2.29
 
@@ -31,7 +31,7 @@ CREATE TABLE `ff_accounts` (
   `id` int(11) NOT NULL,
   `username` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `reg_date` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL
+  `reg_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------

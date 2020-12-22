@@ -38,14 +38,17 @@ $row = mysqli_fetch_assoc($query);
       <!-- THREAD START -->
       <?php
         if ($count > 0) {
+          $thread_con = str_replace("
+", "<br>", $row['thread_container']);
+
           echo "<div class='bg-light p-3 mb-3'>";
-          echo "<h4>" . $row['thread_container'] . "</h4>";
+          echo "<h4>" . $thread_con . "</h4>";
           echo "<a href='/profiles?name=" .  $row['thread_author'] . "'<small>by " .  $row['thread_author'] . "</small></a>";
           echo "</div>";
           echo "<form method='post' action='index.php?id=" . $id . "'>";
           echo "<div class='row mb-4'>";
           echo "<div class='col-md-3 text-md-right pt-1'><label for='id_dataroot'>" . $locale_post_reply . "</label></div>";
-          echo "<div class='col-md-9' data-fieldtype='text'><input id='reply_container' name='reply_container' class='form-control text-ltr' size='70'></div></div>";
+          echo "<div class='col-md-9' data-fieldtype='text'><textarea id='reply_container' name='reply_container' class='form-control text-ltr' size='70'></textarea></div></div>";
           echo "<input id='current_thread' name='current_thread' type='hidden' value='" . $id . "'>";
           echo "<button type='submit' name='post_reply' class='btn btn-primary ml-1 flex-grow-0 mr-auto'>" . $locale_post . "</button>";
           echo "</form>";
@@ -54,7 +57,7 @@ $row = mysqli_fetch_assoc($query);
           renderReplies($id);
         }
         else {
-          echo "<p>Failed to load thread :(</p>";
+          echo "<p>" . $locale_failed_to_load_thread . "</p>"; // Failed to load thread :(
         }
       ?>
       <!-- THREAD END -->

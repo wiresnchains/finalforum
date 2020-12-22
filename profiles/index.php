@@ -40,7 +40,7 @@ $row = mysqli_fetch_assoc($query);
           echo "</div>";
         }
         else {
-          echo "<p>Failed to load profile :(</p>";
+          echo "<p>" . $locale_failed_to_load_profile . "</p>"; // Failed to load profile :(
         }
       ?>
       <!-- PROFILE END -->

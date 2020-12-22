@@ -22,7 +22,7 @@ if (isset($_POST['login'])) {
 if (isset($_POST['register'])) {
   $username = mysqli_real_escape_string($sql, $_POST['username']);
   $password = md5(mysqli_real_escape_string($sql, $_POST['password']));
-  $regdate = date("d-m-y");
+  $regdate = date("y-m-d");
 
   if ($username == "" || $password == "") {
     echo $locale_fillform;

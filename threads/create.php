@@ -38,7 +38,7 @@ if (empty($_SESSION['nkm-5jkl'])) {
               <h4><?php echo $locale_thread_info ?></h4>
               <input placeholder="<?php echo $locale_thread_title ?>" id="thread_title" name="thread_title" class="form-control text-ltr" size="70">
               <br>
-              <input placeholder="<?php echo $locale_thread_message ?>" id="thread_message" name="thread_message" class="form-control text-ltr" size="70">
+              <textarea placeholder="<?php echo $locale_thread_message ?>" id="thread_message" name="thread_message" class="form-control text-ltr" size="70"></textarea>
             </div>
           </div>
         </div>

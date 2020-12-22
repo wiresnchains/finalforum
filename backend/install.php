@@ -20,7 +20,7 @@ include 'install_core.php';
       <!-- HEADER END -->
 
       <!-- SUBHEADER START -->
-      <div id="installdiv"><h2><?php echo $locale_forums ?></h2><div class="alert alert-info">Welcome to FinalForum Installation! Fill out the form and click continue!<br><b>Version: 0.0.2 Beta</b></div>
+      <div id="installdiv"><h2><?php echo $locale_forums ?></h2><div class="alert alert-info">Welcome to FinalForum Installation! Fill out the form and click continue!<br><b>Version: 0.0.3 Beta</b></div>
       <!-- SUBHEADER START -->
 
       <!-- INSTALL START -->

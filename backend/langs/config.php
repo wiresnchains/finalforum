@@ -1,3 +1,3 @@
 <?php
-require("en.php");
+require("ru.php");
 ?>

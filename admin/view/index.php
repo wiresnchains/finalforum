@@ -3,6 +3,7 @@ require('../../backend/config.php');
 require('../../backend/admin.php');
 require('../../backend/accounts.php');
 require('../../backend/langs/config.php');
+require('../../backend/functions.php');
 if (empty($_SESSION['npb-5jkl'])) {
   header('location: /');
 }
@@ -35,7 +36,7 @@ $row = mysqli_fetch_assoc($token);
       <!-- ADMIN PANEL START -->
       <form method="post">
         <div class="bg-light p-3 mb-3">
-          <h4>Board Info</h4>
+          <h4><?php echo $locale_board_info ?></h4>
           <p><?php echo $locale_board_title ?></p>
           <input placeholder="<?php echo $locale_board_title ?>" id="board_title" value="<?php echo $board_title ?>" name="board_title" class="form-control text-ltr" size="70">
           <br>
@@ -52,12 +53,6 @@ $row = mysqli_fetch_assoc($token);
         <h4><?php echo $locale_token; ?></h4>
         <p><?php echo $row['token']; ?></p>
       </div>
-      <form method="post">
-        <div class="bg-light p-3 mb-3">
-          <h4><?php echo $locale_exit ?></h4>
-          <button class="btn btn-primary ml-1 flex-grow-0 mr-auto" name="admin-logout" id="admin-logout" type="submit"><?php echo $locale_exit ?></button>
-        </div>
-      </form>
       <?php
       if (isset($_POST['change_board'])) {
         $new_bt = mysqli_real_escape_string($sql, $_POST['board_title']);
@@ -76,6 +71,34 @@ require(\"" . $new_bl . ".php\");
         fclose($FileHandle1);
       }
       ?>
+      <h4><?php echo $locale_threads ?></h4>
+      <?php renderAdminThreads(); echo $locale_no_more_threads; ?>
+      <br><br>
+      <h4><?php echo $locale_replies ?></h4>
+      <?php renderAdminReplies(); echo $locale_no_more_replies; ?>
+      <br><br>
+      <h4><?php echo $locale_users ?></h4>
+      <?php renderUsers(); echo $locale_no_more_users; ?>
+      <br><br>
+      <h4><?php echo $locale_admins ?></h4>
+      <div class="bg-light p-3 mb-3">
+        <h4><?php echo $locale_create_admin ?></h4>
+        <form method="post">
+          <input placeholder="<?php echo $locale_username ?>" id="admin_username" name="admin_username" class="form-control text-ltr" size="70">
+          <br>
+          <input placeholder="<?php echo $locale_password ?>" id="admin_password" name="admin_password" class="form-control text-ltr" size="70">
+          <br>
+          <button class="btn btn-primary ml-1 flex-grow-0 mr-auto" name="admin_create" id="admin_create" type="submit"><?php echo $locale_create ?></button>
+        </form>
+      </div>
+      <?php renderAdmins(); echo $locale_no_more_admins; ?>
+      <br><br>
+      <form method="post">
+        <div class="bg-light p-3 mb-3">
+          <h4><?php echo $locale_exit ?></h4>
+          <button class="btn btn-primary ml-1 flex-grow-0 mr-auto" name="admin-logout" id="admin-logout" type="submit"><?php echo $locale_exit ?></button>
+        </div>
+      </form>
       <!-- ADMIN PANEL END -->
     </div>
   </body>
