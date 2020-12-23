@@ -1,5 +1,9 @@
 <?php
-include 'install_core.php';
+require_once('install_core.php');
+
+if (file_exists("mysql_connect.php")) {
+  header('location: /');
+}
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -20,7 +24,7 @@ include 'install_core.php';
       <!-- HEADER END -->
 
       <!-- SUBHEADER START -->
-      <div id="installdiv"><h2><?php echo $locale_forums ?></h2><div class="alert alert-info">Welcome to FinalForum Installation! Fill out the form and click continue!<br><b>Version: 0.0.3 Beta</b></div>
+      <div id="installdiv"><h2><?php echo $locale_forums ?></h2><div class="alert alert-info">Welcome to FinalForum Installation! Fill out the form and click continue!<br><b>Version: 0.0.4 Beta</b></div>
       <!-- SUBHEADER START -->
 
       <!-- INSTALL START -->
@@ -61,6 +65,7 @@ include 'install_core.php';
         ?>
       </form>
       <!-- INSTALL END -->
+      <?php include('../frontend/footer.php') ?>
     </div>
   </body>
 </html>

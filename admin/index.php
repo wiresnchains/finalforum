@@ -1,8 +1,5 @@
 <?php
-require('../backend/config.php');
-require('../backend/langs/config.php');
-require('../backend/admin.php');
-require('../backend/accounts.php');
+require_once("../backend/includes.php");
 if (!empty($_SESSION['npb-5jkl'])) {
   header('location: /admin/view');
 }
@@ -39,6 +36,7 @@ if (!empty($_SESSION['npb-5jkl'])) {
         <button class="btn btn-primary ml-1 flex-grow-0 mr-auto" name="admin-login" id="admin-login" type="submit"><?php echo $locale_login ?></button>
       </form>
       <!-- FORM END -->
+      <?php include('../frontend/footer.php') ?>
     </div>
   </body>
 </html>

@@ -42,6 +42,39 @@ if (isset($_POST['register'])) {
   }
 }
 
+if (isset($_POST['post_comment'])) {
+  if (!empty($_SESSION['nkm-5jkl'])) {
+    $container = mysqli_real_escape_string($sql, $_POST['comment_container']);
+    $profile = mysqli_real_escape_string($sql, $_POST['current_profile']);
+    $author = $_SESSION['nkm-5jkl'];
+    $date = date("Y/m/d H:i:s");
+
+    if ($container == "" || $profile == "") {
+      echo $locale_fillform;
+    }
+    else {
+      $query = mysqli_query($sql, "INSERT INTO ff_profile_comments (parent_profile, comment_container, comment_author, comment_date) VALUES ('$profile', '$container', '$author', '$date')");
+    }
+  }
+  else {
+    header('location: /profiles/login');
+  }
+}
+
+if (isset($_POST['remove_comment'])) {
+  $comment_id = mysqli_real_escape_string($sql, $_POST['comment_id']);
+  $query = mysqli_query($sql, "SELECT * FROM ff_profile_comments WHERE id='$comment_id'");
+  $row = mysqli_fetch_assoc($query);
+
+  // if comment author is the one who is trying to delete it
+  if ($_SESSION['nkm-5jkl'] == $row['comment_author']) {
+    $query_2 = mysqli_query($sql, "DELETE FROM ff_profile_comments WHERE id='$comment_id'");
+  }
+  else {
+    echo "incorrect account";
+  }
+}
+
 if (isset($_POST['logout'])) {
   unset($_SESSION['nkm-5jkl']);
   session_destroy();

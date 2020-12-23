@@ -1,5 +1,5 @@
 <?php
-require('mysql_connect.php');
+require("mysql_connect.php");
 
 // Board Settings
 $board_query = mysqli_query($sql, "SELECT board_title, board_msg FROM ff_config WHERE id = '1'");

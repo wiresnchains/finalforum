@@ -1,8 +1,8 @@
 <?php
-include '../backend/langs/config.php';
-include '../backend/threads.php';
-include '../backend/config.php';
-include '../backend/accounts.php';
+require('../backend/langs/config.php');
+require('../backend/threads.php');
+require('../backend/config.php');
+require('../backend/accounts.php');
 if (empty($_SESSION['nkm-5jkl'])) {
   header('location: /');
 }
@@ -45,6 +45,7 @@ if (empty($_SESSION['nkm-5jkl'])) {
         <button class="btn btn-primary ml-1 flex-grow-0 mr-auto" name="create_thread" id="create_thread" type="submit"><?php echo $locale_post ?></button>
       </form>
       <!-- INSTALL END -->
+      <?php include('../frontend/footer.php') ?>
     </div>
   </body>
 </html>

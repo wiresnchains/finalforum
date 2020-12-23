@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Дек 22 2020 г., 16:24
+-- Время создания: Дек 23 2020 г., 11:41
 -- Версия сервера: 10.3.22-MariaDB
 -- Версия PHP: 7.2.29
 
@@ -79,6 +79,33 @@ INSERT INTO `ff_config` (`id`, `board_title`, `board_msg`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `ff_likes`
+--
+
+CREATE TABLE `ff_likes` (
+  `id` int(11) NOT NULL,
+  `like_author` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `liked_thread_id` varchar(11) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `liked_comment_id` varchar(11) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `ff_profile_comments`
+--
+
+CREATE TABLE `ff_profile_comments` (
+  `id` int(11) NOT NULL,
+  `parent_profile` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `comment_container` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `comment_author` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `comment_date` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `ff_replies`
 --
 
@@ -132,6 +159,18 @@ ALTER TABLE `ff_config`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Индексы таблицы `ff_likes`
+--
+ALTER TABLE `ff_likes`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Индексы таблицы `ff_profile_comments`
+--
+ALTER TABLE `ff_profile_comments`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Индексы таблицы `ff_replies`
 --
 ALTER TABLE `ff_replies`
@@ -170,6 +209,18 @@ ALTER TABLE `ff_api_tokens`
 --
 ALTER TABLE `ff_config`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT для таблицы `ff_likes`
+--
+ALTER TABLE `ff_likes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT для таблицы `ff_profile_comments`
+--
+ALTER TABLE `ff_profile_comments`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT для таблицы `ff_replies`

@@ -101,4 +101,28 @@ function renderAdmins() {
     echo "</div>";
   }
 }
+
+function renderComments($parent_profile) {
+  require("mysql_connect.php");
+  require("langs/config.php");
+
+  $query = mysqli_query($sql, "SELECT * FROM ff_profile_comments WHERE parent_profile='$parent_profile'");
+
+  while($row = mysqli_fetch_array($query))
+  {
+    $comment_con = str_replace("
+", "<br>", $row['comment_container']);
+
+    echo "<div class='bg-light p-3 mb-3'>";
+    echo "<h3 class='m-0'>" . $comment_con . "</a></h3><a href='/profiles/index.php?name=" . $row['comment_author'] . "'><small>" . $row['comment_author'] . "</small></a>";
+
+    if ($_SESSION['nkm-5jkl'] == $row['comment_author'] || $_SESSION['nkm-5jkl'] == $row['parent_profile']) {
+      echo "<br><form method='post'>";
+      echo "<input type='hidden' name='comment_id' id='comment_id' value='" . $row['id'] . "'>";
+      echo "<br><button id='remove_comment' name='remove_comment' class='btn btn-primary ml-1 flex-grow-0 mr-auto' type='submit'>" . $locale_delete_comment . "</button>";
+      echo "</form>";
+    }
+    echo "</div>";
+  }
+}
 ?>

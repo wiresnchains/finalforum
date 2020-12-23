@@ -38,5 +38,6 @@ require('backend/accounts.php');
       <p><?php echo $locale_no_more_threads ?></p>
       <!-- THREAD LIST END -->
     </div>
+    <?php include('frontend/footer.php') ?>
   </body>
 </html>

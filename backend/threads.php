@@ -14,6 +14,8 @@ if (isset($_POST['create_thread'])) {
     }
     else {
       $query = mysqli_query($sql, "INSERT INTO ff_threads (thread_name, thread_author, thread_container, post_date) VALUES ('$name', '$author', '$container', '$datetime')");
+      $id = mysqli_insert_id($sql);
+      header('location: /threads/index.php?id=' . $id);
     }
   }
   else {
@@ -41,11 +43,28 @@ if (isset($_POST['post_reply'])) {
 
 if (isset($_POST['remove_thread'])) {
   $thread_id = mysqli_real_escape_string($sql, $_POST['thread_id']);
+  $query_3 = mysqli_query($sql, "SELECT thread_author FROM ff_threads WHERE id='$thread_id'");
+  $row = mysqli_fetch_assoc($query_3);
 
-  // delete thread
-  $query = mysqli_query($sql , "DELETE FROM ff_threads WHERE id='$thread_id'");
+  if ($_SESSION['nkm-5jkl'] == $row['thread_author']) {
+    // delete thread
+    $query = mysqli_query($sql , "DELETE FROM ff_threads WHERE id='$thread_id'");
 
-  // delete thread replies
-  $query_2 = mysqli_query($sql , "DELETE FROM ff_replies WHERE parent_thread='$thread_id'");
+    // delete thread replies
+    $query_2 = mysqli_query($sql , "DELETE FROM ff_replies WHERE parent_thread='$thread_id'");
+
+    header('location: /');
+  }
+}
+
+if (isset($_POST['remove_reply'])) {
+  $reply_id = mysqli_real_escape_string($sql, $_POST['reply_id']);
+  $query_3 = mysqli_query($sql, "SELECT author FROM ff_replies WHERE id='$reply_id'");
+  $row = mysqli_fetch_assoc($query_3);
+
+  if ($_SESSION['nkm-5jkl'] == $row['author']) {
+    // delete reply
+    $query = mysqli_query($sql , "DELETE FROM ff_replies WHERE id='$reply_id'");
+  }
 }
 ?>

@@ -46,4 +46,10 @@ $locale_new_password = "New password";
 $locale_delete_admin = "Delete admin";
 $locale_create_admin = "Create admin";
 $locale_create = "Create";
+$locale_posted_at = "Posted at";
+$locale_edit_thread = "Edit thread";
+$locale_beta_note = "NOTE: This is beta version so you may experience bugs";
+$locale_comments = "Comments";
+$locale_post_comment = "Post comment";
+$locale_delete_comment = "Delete comment";
 ?>

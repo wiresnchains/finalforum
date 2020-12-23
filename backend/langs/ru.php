@@ -46,4 +46,10 @@ $locale_new_password = "Новый пароль";
 $locale_delete_admin = "Удалить администратора";
 $locale_create_admin = "Создать администратора";
 $locale_create = "Создать";
+$locale_posted_at = "Отправлено в";
+$locale_edit_thread = "Изменить тему";
+$locale_beta_note = "ПРИМЕЧАНИЕ: Это бета-версия, поэтому у вас могут возникнуть проблемы";
+$locale_comments = "Комментарии";
+$locale_post_comment = "Ответить";
+$locale_delete_comment = "Удалить комментарий";
 ?>

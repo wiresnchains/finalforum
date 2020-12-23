@@ -1,9 +1,8 @@
 <?php
-if (file_exists("backend/mysql_connect.php")) {
-  header('location: /');
-}
 function createTables($board_nametitle, $board_message, $mysql_host, $admin_username, $admin_password) {
-  include('mysql_connect.php');
+  require_once('mysql_connect.php');
+  
+  // import sql
   $filename = 'tables.sql';
   // Temporary variable, used to store current query
   $templine = '';

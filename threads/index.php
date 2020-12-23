@@ -43,8 +43,18 @@ $row = mysqli_fetch_assoc($query);
 
           echo "<div class='bg-light p-3 mb-3'>";
           echo "<h4>" . $thread_con . "</h4>";
-          echo "<a href='/profiles?name=" .  $row['thread_author'] . "'<small>by " .  $row['thread_author'] . "</small></a>";
+          echo "<a href='/profiles?name=" .  $row['thread_author'] . "'<small>by " .  $row['thread_author'] . "</small></a><br><small>" . $locale_posted_at . " " .  $row['post_date'] . "</small>";
+          if ($_SESSION['nkm-5jkl'] == $row['thread_author']) {
+            echo "<br><form method='post'>";
+            echo "<input type='hidden' name='thread_id' id='thread_id' value='" . $row['id'] . "'>";
+            echo "<br><button id='remove_thread' name='remove_thread' class='btn btn-primary ml-1 flex-grow-0 mr-auto' type='submit'>" . $locale_delete_thread . "</button>";
+            //echo "<button type='submit' id='edit_thread' name='edit_thread' class='btn btn-primary ml-1 flex-grow-0 mr-auto'>" . $locale_edit_thread . "</button>";
+            echo "</form>";
+          }
           echo "</div>";
+          // replies
+          echo "<h4>" . $locale_replies . "</h4>";
+          renderReplies($id);
           echo "<form method='post' action='index.php?id=" . $id . "'>";
           echo "<div class='row mb-4'>";
           echo "<div class='col-md-3 text-md-right pt-1'><label for='id_dataroot'>" . $locale_post_reply . "</label></div>";
@@ -53,14 +63,13 @@ $row = mysqli_fetch_assoc($query);
           echo "<button type='submit' name='post_reply' class='btn btn-primary ml-1 flex-grow-0 mr-auto'>" . $locale_post . "</button>";
           echo "</form>";
           echo "<br>";
-          echo "<h4>" . $locale_replies . "</h4>";
-          renderReplies($id);
         }
         else {
           echo "<p>" . $locale_failed_to_load_thread . "</p>"; // Failed to load thread :(
         }
       ?>
       <!-- THREAD END -->
+      <?php include('../frontend/footer.php') ?>
     </div>
   </body>
 </html>

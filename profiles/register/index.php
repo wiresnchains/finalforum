@@ -38,6 +38,7 @@ if (!empty($_SESSION['nkm-5jkl'])) {
         <button class="btn btn-primary ml-1 flex-grow-0 mr-auto" name="register" id="register" type="submit"><?php echo $locale_register ?></button>
       </form>
       <!-- FORM END -->
+      <?php include('../../frontend/footer.php') ?>
     </div>
   </body>
 </html>

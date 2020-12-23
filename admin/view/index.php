@@ -1,9 +1,5 @@
 <?php
-require('../../backend/config.php');
-require('../../backend/admin.php');
-require('../../backend/accounts.php');
-require('../../backend/langs/config.php');
-require('../../backend/functions.php');
+require_once("../../backend/includes.php");
 if (empty($_SESSION['npb-5jkl'])) {
   header('location: /');
 }
@@ -100,6 +96,7 @@ require(\"" . $new_bl . ".php\");
         </div>
       </form>
       <!-- ADMIN PANEL END -->
+      <?php include('../../frontend/footer.php') ?>
     </div>
   </body>
 </html>

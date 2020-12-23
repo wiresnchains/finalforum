@@ -3,6 +3,7 @@ require('../../backend/mysql_connect.php');
 require('../../backend/config.php');
 require('../../backend/accounts.php');
 require('../../backend/langs/config.php');
+require('../../backend/functions.php');
 if (empty($_SESSION['nkm-5jkl'])) {
   header('location: /');
 }
@@ -40,8 +41,13 @@ $row = mysqli_fetch_assoc($query);
         <h4><?php echo $locale_username; ?>: <?php echo $row['username']; ?></h4>
         <h4><?php echo $locale_regdate; ?>: <?php echo $row['reg_date']; ?></h4>
       </div>
+      <?php
+      echo "<h4>" . $locale_comments . "</h4>";
+      renderComments($row['username']);
+      ?>
       <!-- PROFILE END -->
       <a href="/"><form method="post"><button class="btn btn-primary ml-1 flex-grow-0 mr-auto" type="submit" id="logout" name="logout"><?php echo $locale_exit ?></button></form></a>
+      <?php include('../../frontend/footer.php') ?>
     </div>
   </body>
 </html>
