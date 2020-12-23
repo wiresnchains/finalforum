@@ -2,7 +2,7 @@
 FinalForum is an open-source forum engine  
 Current version: 0.0.4 Beta
 
-# Functions
+# Main Functions
 Multiple languages (you can add them)  
 Create threads  
 Reply to threads  
